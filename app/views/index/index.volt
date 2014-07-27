@@ -1,3 +1,30 @@
-<h1>Congratulations!</h1>
+{{ partial("layouts/index") }}
 
-<p>You're now flying with Phalcon. Great things are about to happen!</p>
+<div id="content">
+    <div class="container">
+        <h1>Products</h1>
+
+        {% if action is defined and action === "add" %}
+            <div> {{ name }} was added to your cart</div>
+        {% elseif action is defined and action === "exists" %}
+            <div> {{ name }} already exists in your cart </div>
+        {% endif %}
+
+        <table class="table">
+            <tr>
+                <th>Product name</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ link_to("index/cartadd?id=" ~ product.id ~ "&name=" ~ product.name,"Add", "class":"customButton",
+                                  "title":"Add to Cart") }}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>

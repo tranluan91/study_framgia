@@ -1,0 +1,28 @@
+body {
+    padding-top: 70px;
+}
+
+.custom-navbar {
+    background-color: #5c6469;
+    border-color: #5a6067;
+}
+
+#navbar-header-text {
+    background-size: 45px 45px;
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 32px;
+    font-weight: bolder;
+    padding-left: 50px;
+    text-shadow: 1px 1px #555555, 2px 2px #444444;
+}
+
+#navbar-header-right {
+    background-size: 45px 45px;
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: bolder;
+    padding-left: 50px;
+    text-shadow: 1px 1px #555555, 2px 2px #444444;
+}

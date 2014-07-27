@@ -15,6 +15,10 @@ return new \Phalcon\Config(array(
         'pluginsDir'     => __DIR__ . '/../../app/plugins/',
         'libraryDir'     => __DIR__ . '/../../app/library/',
         'cacheDir'       => __DIR__ . '/../../app/cache/',
-        'baseUri'        => '/shopping_cart/',
+        'baseUri'        => '/',
+        'app' => array(
+            'servicesDir' => __DIR__ . '/../../services/',
+        ),
+        'layoutsDir'     => __DIR__ . '/../../app/views/layouts/',
     )
 ));

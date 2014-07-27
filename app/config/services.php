@@ -31,6 +31,7 @@ $di->set('view', function () use ($config) {
     $view = new View();
 
     $view->setViewsDir($config->application->viewsDir);
+    $view->setLayoutsDir($config->application->layoutsDir);
 
     $view->registerEngines(array(
         '.volt' => function ($view, $di) use ($config) {
@@ -78,3 +79,7 @@ $di->set('session', function () {
 
     return $session;
 });
+
+$di['modelsManager'] = function() {
+    return new \Phalcon\Mvc\Model\Manager();
+};

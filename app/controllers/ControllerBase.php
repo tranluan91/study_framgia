@@ -15,7 +15,6 @@ class ControllerBase extends Controller
             $cart = $this->session->get('cart');
             $cartItemCount = count($cart);
         }
-        $this->view->cart = $cart;
 
         $cartItemCount = ($cartItemCount && $cartItemCount > 0) ? $cartItemCount : 0;
         $this->view->cartItemCount = $cartItemCount;

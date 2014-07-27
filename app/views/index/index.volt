@@ -5,9 +5,9 @@
         <h1>Products</h1>
 
         {% if action is defined and action === "add" %}
-            <div> {{ name }} was added to your cart</div>
+            <div class="alert alert-warning"> {{ name }} was added to your cart</div>
         {% elseif action is defined and action === "exists" %}
-            <div> {{ name }} already exists in your cart </div>
+            <div class="alert alert-warning"> {{ name }} already exists in your cart </div>
         {% endif %}
 
         <table class="table">

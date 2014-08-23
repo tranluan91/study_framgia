@@ -83,3 +83,11 @@ $di->set('session', function () {
 $di['modelsManager'] = function() {
     return new \Phalcon\Mvc\Model\Manager();
 };
+
+$di->setShared('facebook', function() use ($config) {
+    return new \Facebook([
+        'appId'     => $config->facebook->appId,
+        'secret'    => $config->facebook->secret
+    ]);
+});
+

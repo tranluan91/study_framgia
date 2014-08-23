@@ -3,10 +3,10 @@
 return new \Phalcon\Config(array(
     'database' => array(
         'adapter'     => 'Mysql',
-        'host'        => 'localhost',
-        'username'    => 'root',
-        'password'    => '1',
-        'dbname'      => 'shopping_cart',
+        'host'        => 'your host',
+        'username'    => 'your user name',
+        'password'    => 'password',
+        'dbname'      => 'dbname',
     ),
     'application' => array(
         'controllersDir' => __DIR__ . '/../../app/controllers/',

@@ -2,8 +2,7 @@
 
 <div id="content">
     <div class="container">
-<a href="<?= $this->facebook->getLoginUrl(['scope' => $this->config->facebook->scope, 'redirect_uri' => $url .$this->url->get('user/facebook')]) ?>"><span class="fa"></span>Facebook Login
-</a>
+    {% if auth is defined %}
         <h1>Products</h1>
         {% if action is defined and action === "add" %}
             <div class="alert alert-warning"> {{ name }} was added to your cart</div>
@@ -27,5 +26,9 @@
             </tr>
             {% endfor %}
         </table>
+    {% else %}
+        <a href="<?= $this->facebook->getLoginUrl(['scope' => $this->config->facebook->scope, 'redirect_uri' => $url .$this->url->get('user/facebook')]) ?>"><span class="fa"></span>Facebook Login
+        </a>
+    {% endif %}
     </div>
 </div>

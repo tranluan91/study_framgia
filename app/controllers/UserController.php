@@ -29,13 +29,13 @@ class UserController extends ControllerBase
             if ($user->save()) {
                 $this->authUserById($user->id);
 
-                return $this->response->redirect('index/cart');
+                return $this->response->redirect('index');
             } else {
                 $this->flash->error('There was an error connecting your facebook user.');
             }
         } else {
             $this->authUserById($user->id);
-            return $this->response->redirect('index/cart');
+            return $this->response->redirect('index');
         }
     }
 
@@ -57,5 +57,12 @@ class UserController extends ControllerBase
             'username' => $user->username,
             'email' => $user->email,
         ]);
+    }
+
+    public function logoutAction() {
+        $this->session->destroy();
+        $this->facebook->destroySession();
+        $this->facebook->setAccessToken('');
+        return $this->response->redirect('index');
     }
 }

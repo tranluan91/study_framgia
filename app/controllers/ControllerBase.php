@@ -8,6 +8,7 @@ class ControllerBase extends Controller
      * @var session cart
      */
     public $cart = null;
+    public $auth;
 
     public function initialize()
     {
@@ -22,5 +23,10 @@ class ControllerBase extends Controller
             $cartItemCount = 0;
         }
         $this->view->cartItemCount = $cartItemCount;
+
+        if ($this->session->has('auth-identity')) {
+            $auth = $this->session->get('auth-identity');
+            $this->view->auth = $auth;
+        }
     }
 }

@@ -20,5 +20,10 @@ return new \Phalcon\Config(array(
             'servicesDir' => __DIR__ . '/../../services/',
         ),
         'layoutsDir'     => __DIR__ . '/../../app/views/layouts/',
-    )
+    ),
+    'facebook'  => array(
+        'appId' => '1519901488224583',
+       'secret' => '966dbe45921a76e7424db5389da2840f',
+       'scope'  => 'public_profile,email'
+    ),
 ));

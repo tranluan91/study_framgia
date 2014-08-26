@@ -16,7 +16,11 @@ class ControllerBase extends Controller
             $cartItemCount = count($cart);
         }
 
-        $cartItemCount = ($cartItemCount && $cartItemCount > 0) ? $cartItemCount : 0;
+        if (isset($cartItemCount)) {
+            $cartItemCount = ($cartItemCount > 0) ? $cartItemCount : 0;
+        } else {
+            $cartItemCount = 0;
+        }
         $this->view->cartItemCount = $cartItemCount;
     }
 }

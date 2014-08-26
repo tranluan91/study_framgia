@@ -16,6 +16,10 @@ $di = new FactoryDefault();
 /**
  * The URL component is used to generate all kind of urls in the application
  */
+
+$config = include __DIR__ . "/config.php";
+$di['config'] = $config;
+
 $di->set('url', function () use ($config) {
     $url = new UrlResolver();
     $url->setBaseUri($config->application->baseUri);

@@ -1,4 +1,8 @@
 {# ==== include CSS =====#}
+<?php
+    $config = $this->di->get('config');
+    $url = $config->url;
+?>
 {% block css %}
     {{ stylesheet_link('css/bootstrap/dist/css/bootstrap.min.css') }}
     {{ stylesheet_link('css/bootstrap.no-responsive.css') }}

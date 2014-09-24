@@ -95,3 +95,19 @@ $di->setShared('facebook', function() use ($config) {
     ]);
 });
 
+//REDIS
+$di['redis'] = function() use ($config) {
+    $host = $config->database_redis->host;
+    $port = $config->database_redis->port;
+    $database_number = $config->database_redis->database_number;
+    return compact("host", "port", "database_number");
+};
+
+$loader = new \Phalcon\Loader();
+$loader->registerNamespaces(array(
+    'Controllers' => __DIR__ . 'controllers/',
+    'Models' => APPS_PATH . 'models/',
+    'Libs' => LIBS_PATH,
+    'Services' => __DIR__ . 'services/',
+));
+$loader->register();

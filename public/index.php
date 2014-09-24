@@ -3,16 +3,23 @@
 error_reporting(E_ALL);
 
 try {
+    /**
+     *  Directory Path Definition
+     */
+    define('SYSTEM_ROOT', __DIR__.'/../');
+    define('PUBLIC_PATH', __DIR__);
+    define('APPS_PATH', SYSTEM_ROOT . 'app/');
+    define('LIBS_PATH', SYSTEM_ROOT . 'libs/');
 
     /**
      * Read the configuration
      */
-    $config = include __DIR__ . "/../app/config/config.php";
+    $config = include APPS_PATH . "config/config.php";
 
     /**
      * Read auto-loader
      */
-    include __DIR__ . "/../app/config/loader.php";
+    include APPS_PATH . "config/loader.php";
 
     /**
      * Include composer autoloader
@@ -22,7 +29,8 @@ try {
     /**
      * Read services
      */
-    include __DIR__ . "/../app/config/services.php";
+    include APPS_PATH . "config/services.php";
+
 
     /**
      * Handle the request

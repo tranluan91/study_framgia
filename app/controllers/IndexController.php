@@ -3,11 +3,12 @@
 class IndexController extends ControllerBase
 {
 
+    use \Libs\Utility\ModelManagerService;
+
     public function indexAction()
     {
-        $products = new Products();
-        $results = $products->find();
-        $this->view->products = $results;
+        $this->initModel('Products');
+        $this->view->products = $this->Products->find();
 
         // to prevent undefined index notice
         $action = $this->request->get('action');
@@ -23,6 +24,9 @@ class IndexController extends ControllerBase
 
     public function cartAction()
     {
+        if (!$this->session->has('auth-identity')) {
+            return $this->response->redirect('index');
+        }
         if ($this->session->has('cart')) {
             $cart = $this->session->get('cart');
         }

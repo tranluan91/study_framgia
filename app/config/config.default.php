@@ -26,4 +26,9 @@ return new \Phalcon\Config(array(
        'secret' => '966dbe45921a76e7424db5389da2840f',
        'scope'  => 'public_profile,email'
     ),
+    'database_redis' => array(
+        'host' => 'localhost',
+        'port' => '6379',
+        'database_number' => 1,
+    ),
 ));

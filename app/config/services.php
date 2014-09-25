@@ -95,3 +95,28 @@ $di->setShared('facebook', function() use ($config) {
     ]);
 });
 
+//REDIS
+$di['redis'] = function() use ($config) {
+    $host = $config->database_redis->host;
+    $port = $config->database_redis->port;
+    $database_number = $config->database_redis->database_number;
+    return compact("host", "port", "database_number");
+};
+
+$loader = new \Phalcon\Loader();
+$loader->registerNamespaces(array(
+    'Controllers' => APPS_PATH . 'controllers/',
+    'Models' => APPS_PATH . 'models/',
+    'Libs' => LIBS_PATH,
+    'Services' => APPS_PATH . 'services/',
+));
+$loader->register();
+
+//Register the flash service with custom CSS classes
+$di['flash'] = function() {
+    return new \Phalcon\Flash\Session(array(
+        'error' => 'alert alert-danger',
+        'success' => 'alert alert-success',
+        'notice' => 'alert alert-info',
+    ));
+};

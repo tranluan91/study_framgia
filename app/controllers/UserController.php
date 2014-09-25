@@ -19,7 +19,7 @@ class UserController extends ControllerBase
         if (!$user) {
             $user = new Users();
             $user->assign([
-                    'fbid'         =>$facebook_user['id'],
+                    'fbid'         => $facebook_user['id'],
                     'display_name' => $facebook_user['name'],
                     'username'     => $facebook_user['email'],
                     'email'        => $facebook_user['email'],

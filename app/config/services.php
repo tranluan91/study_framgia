@@ -105,9 +105,18 @@ $di['redis'] = function() use ($config) {
 
 $loader = new \Phalcon\Loader();
 $loader->registerNamespaces(array(
-    'Controllers' => __DIR__ . 'controllers/',
+    'Controllers' => APPS_PATH . 'controllers/',
     'Models' => APPS_PATH . 'models/',
     'Libs' => LIBS_PATH,
-    'Services' => __DIR__ . 'services/',
+    'Services' => APPS_PATH . 'services/',
 ));
 $loader->register();
+
+//Register the flash service with custom CSS classes
+$di['flash'] = function() {
+    return new \Phalcon\Flash\Session(array(
+        'error' => 'alert alert-danger',
+        'success' => 'alert alert-success',
+        'notice' => 'alert alert-info',
+    ));
+};

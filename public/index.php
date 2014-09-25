@@ -20,6 +20,7 @@ try {
      * Read auto-loader
      */
     include APPS_PATH . "config/loader.php";
+    require LIBS_PATH . 'basics.php';
 
     /**
      * Include composer autoloader

@@ -10,18 +10,18 @@
             <div class="alert alert-warning"> {{ name }} not in your cart</div>
         {% endif %}
 
-        {% if your_cart is defined %}
+        {% if products is defined %}
             <table class="table">
                 <tr>
                     <th>Product name</th>
                     <th>Price</th>
                     <th>Action</th>
                 </tr>
-                {% for product in your_cart %}
+                {% for index, product in products %}
                 <tr>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.price }}</td>
-                    <td>{{ link_to("index/cartremove?id=" ~ product.id ~ "&name=" ~ product.name,"Remove", "class":"customButton",
+                    <td>{{ product["name"] }}</td>
+                    <td>{{ product["price"] }}</td>
+                    <td>{{ link_to("index/cart/remove?product=" ~ index, "Remove", "class": "btn btn-danger",
                                       "title":"Remove from Cart") }}
                     </td>
                 </tr>

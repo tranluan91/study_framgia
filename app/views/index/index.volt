@@ -1,13 +1,12 @@
 {{ partial("layouts/index") }}
 
+{% block content %}
 <div id="content">
     <div class="container">
     {% if auth is defined %}
         <h1>Products</h1>
-        {% if action is defined and action === "add" %}
-            <div class="alert alert-warning"> {{ name }} was added to your cart</div>
-        {% elseif action is defined and action === "exists" %}
-            <div class="alert alert-warning"> {{ name }} already exists in your cart </div>
+        {% if success is defined %}
+            <div class="alert alert-warning"> Added to your cart</div>
         {% endif %}
 
         <table class="table">
@@ -20,9 +19,7 @@
             <tr>
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
-                <td>{{ link_to("index/cartadd?id=" ~ product.id ~ "&name=" ~ product.name,"Add", "class":"customButton",
-                                  "title":"Add to Cart") }}
-                </td>
+                <td>{{ link_to("index/index/add?product=" ~ product.id, "Add",  "class": "btn btn-success") }}</td>
             </tr>
             {% endfor %}
         </table>
@@ -32,3 +29,4 @@
     {% endif %}
     </div>
 </div>
+{% endblock %}

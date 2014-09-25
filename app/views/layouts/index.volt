@@ -23,3 +23,9 @@
         </div>
     </div>
 </div>
+<div id="content">
+    <div class="container">
+        <div id="messages">{{ flash.output() }}</div>
+        {% block content %}{% endblock %}
+    </div>
+</div>

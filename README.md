@@ -13,5 +13,9 @@ Rất cảm ơn!
 
   Login with facebook account
     https://github.com/tranluan91/study_framgia/blob/master/THANG8.md
+3. Bài tìm hiểu tháng 9/2014
+
+  Shopping cart with redis.
+    https://github.com/tranluan91/study_framgia/blob/master/THANG9.md
 
 END

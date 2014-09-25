@@ -6,6 +6,7 @@ class RedisListModel extends RedisModel
 {
     public static $key_pattern = "";
     protected static $key;
+    public static $key_del = '_delete_';
 
     /**
      *  Get the table's key
@@ -91,10 +92,9 @@ class RedisListModel extends RedisModel
         if ($start < 0) $start = $length + $start;
 
         if ($range===0) {
-            // N番目から最後まで取得
+            // Get record to end from N-th
             $end = $length - 1;
         } elseif ($range > 0) {
-            // N番目からN+l番目(または最後まで取得する);
             $end = $start + $range - 1;
         } else {
             if ($start + $range >= 0) {
@@ -105,7 +105,6 @@ class RedisListModel extends RedisModel
                 $start = 0;
             }
         }
-        \Libs\Debugger::log('List start end', $start . '---' . $end);
         return self::$redis->LRANGE($key, $start, $end);
     }
 
@@ -154,5 +153,16 @@ class RedisListModel extends RedisModel
         foreach($this->KEYS(self::key("*")) as $key) {
             $this->DEL($key);
         }
+    }
+
+    /**
+     * remove element by index
+     * @param $index
+     */
+    public function remove($key, $index) {
+        $key = static::key($key);
+        self::$redis->LSET($key, $index, static::$key_del);
+        $element = self::$redis->LINDEX($key, $index);
+        $this->LREM($key, $element);
     }
 }

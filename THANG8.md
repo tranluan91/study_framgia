@@ -16,7 +16,7 @@ Sử dụng Facebook Api để login.
     }
     ```
     + Thêm config appId và secret cho facebook apps access token tại ```app/config/config.php```
-    
+
     ```php
     'facebook'  => array(
       'appId' => '1519901488224583',
@@ -42,7 +42,13 @@ Sử dụng Facebook Api để login.
   - Chạy migration:
   ```phalcon migration run --migrations=migration```
 4. Bắt tay vào code nào
-5. Tài liệu tham khảo
+5. Ưu nhược điểm
+  - Ưu điểm:
+    + Sử dụng khá tương đồng với framework PHP khác với api facebook.
+    + Cú pháp đơn giản, tường minh.
+  - Nhược điểm:
+    + Việc config khá khó khăn do ít tài liệu tham khảo.
+6. Tài liệu tham khảo
   - http://forum.phalconphp.com/discussion/1481/phalcon-facebook-login
   - Project HKT https://github.com/framgia/hkt
 
